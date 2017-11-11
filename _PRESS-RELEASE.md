@@ -1,4 +1,4 @@
-# Project Name #
+# You Are What You Eat #
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > A kid-friendly approach to nutrition
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Parents and kids can learn more about the foods we eat and why we eat them
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > This interface provides information from top nutrition databases on the different foods we eat in a digestible format for kids. Clickable images allow easy access to information.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Parents struggle with battles over dinner with their kids when it comes to vegetables.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > This provides an interface for kids to learn more about what they eat.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > Action comes from access to information.
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Just type a food into the search bar.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > I can now justify to my kids why they need to eat their vegetables. They want to learn more about nutritious eating!
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > 
