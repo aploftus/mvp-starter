@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import FoodList from './components/FoodList.jsx';
 import Search from './components/Search.jsx';
+import config from '../../config.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +22,8 @@ class App extends React.Component {
           name: 'pasta',
           thumbnail: 'https://www.budgetbytes.com/wp-content/uploads/2017/06/Grilled-Vegetable-Pasta-Salad-H-380x380.jpg'
         }
-      ]
+      ],
+      nutritionData: []
     };
   }
 
@@ -32,7 +34,40 @@ class App extends React.Component {
 
   selectFood(food) {
     console.log('you selected ', food.name);
+    this.getFoodFacts(food);
   }
+
+  getFoodFacts(food) {
+    console.log('getting food facts');
+
+    // A unique identifier to represent the end-user who is accessing the Nutritionix API
+    // If in development mode, set this to 0.
+    // This is used for billing purposes to determine the number of active users your app has.
+    // Please note, when authenticating with the API, you must send the 
+    // x-app-id and x-app-key params as headers, and not as query string parameters.
+    $.ajax({
+      url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
+      method: 'POST',
+      data: { "query": 'broccoli' },
+      headers: {
+        "x-app-id": config.APP_ID,
+        "x-app-key": config.API_KEY,
+        "x-remote-user-id": 0,
+      },
+      success: (data) => {
+        console.log('client got data!')
+        console.log(data);
+        this.setState({
+          nutritionData: data
+        })
+      },
+      error: (err) => {
+        console.log('err ', err);
+      }
+    });
+  } 
+
+
 
   // getProjects() {
   //   $.ajax({
