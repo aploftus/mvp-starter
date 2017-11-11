@@ -3,7 +3,7 @@ import FoodEntry from './FoodEntry.jsx';
 
 const FoodList = ({foods, selectFood}) => (
   <div>
-    <h4> Project Component </h4>
+    <h4> Food List Component </h4>
     There are { foods.length } items.
     { foods.map((food, index) => { 
       return <FoodEntry 
