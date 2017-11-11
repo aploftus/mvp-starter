@@ -3,7 +3,8 @@ import React from 'react';
 let FoodEntry = ({food}) => (
   <div>
     <div>{ food.name }</div>
-    <img className="thumbnail" src="{food.thumbnail}" />
+    <img src={food.thumbnail}
+       style={{width: 100, height: 100}} />
   </div>
 )
 

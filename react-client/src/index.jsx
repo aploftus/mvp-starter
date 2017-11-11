@@ -7,9 +7,20 @@ import Search from './components/Search.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       foods: [
-
+        {
+          name: 'broccoli',
+          thumbnail: 'https://i5.walmartimages.ca/images/Large/950/304/6000016950304.jpg?odnBound=460'
+        },
+        {
+          name: 'apple',
+          thumbnail: 'http://juliandance.org/wp-content/uploads/2016/01/RedApple.jpg'
+        },
+        {
+          name: 'pasta',
+          thumbnail: 'https://www.budgetbytes.com/wp-content/uploads/2017/06/Grilled-Vegetable-Pasta-Salad-H-380x380.jpg'
+        }
       ]
     };
   }
