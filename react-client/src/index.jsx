@@ -12,17 +12,18 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    $.ajax({
-      url: '/items', 
-      success: (data) => {
-        this.setState({
-          items: data
-        })
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    });
+    console.log('mounted');
+    // $.ajax({
+    //   url: '/items', 
+    //   success: (data) => {
+    //     this.setState({
+    //       items: data
+    //     })
+    //   },
+    //   error: (err) => {
+    //     console.log('err', err);
+    //   }
+    // });
   }
 
   render () {
