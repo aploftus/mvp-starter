@@ -1,6 +1,7 @@
 import React from 'react';
+import NutritionEntry from './NutritionEntry.jsx';
 
-const NutritionInfo = ({facts}) => (
+const NutritionInfo = ({nutrients, nutrientCodes, measures, facts}) => (
   <div>
     <h4> NutritionInfo Component </h4>
     <table>
@@ -11,6 +12,15 @@ const NutritionInfo = ({facts}) => (
         </tr>
       </thead>
       <tbody>
+        { nutrients.map((nutrient, index) => { 
+          return <NutritionEntry 
+            nutrient={nutrient}
+            key={index} 
+            nutrientCode={nutrientCodes[index]}
+            measure={measures[index]}
+            facts={facts.full_nutrients}
+          /> })
+        }
       </tbody>
     </table>
   </div>
