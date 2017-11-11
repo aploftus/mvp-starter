@@ -30,6 +30,7 @@ class App extends React.Component {
   componentDidMount() {
     console.log('mounted');
     // this.getProjects.call(this);
+    this.getFoodFacts({ name: 'cabbage' });
   }
 
   selectFood(food) {
@@ -47,7 +48,6 @@ class App extends React.Component {
       contentType: 'application/json',
       success: (data) => {
         console.log('client got data!')
-        console.log(data);
         this.setState({
           nutritionData: data
         })
@@ -57,22 +57,6 @@ class App extends React.Component {
       }
     })
   } 
-
-
-
-  // getProjects() {
-  //   $.ajax({
-  //     url: '/projects', 
-  //     success: (data) => {
-  //       this.setState({
-  //         projects: data
-  //       })
-  //     },
-  //     error: (err) => {
-  //       console.log('err', err);
-  //     }
-  //   });
-  // }
 
   render () {
     return (<div>
