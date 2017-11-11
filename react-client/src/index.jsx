@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import FoodList from './components/FoodList.jsx';
 import Search from './components/Search.jsx';
-import config from '../../config.js';
+import NutritionInfo from './components/NutritionInfo.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class App extends React.Component {
           thumbnail: 'https://www.budgetbytes.com/wp-content/uploads/2017/06/Grilled-Vegetable-Pasta-Salad-H-380x380.jpg'
         }
       ],
-      nutritionData: []
+      nutritionData: {food_name: 'cherries'},
     };
   }
 
@@ -31,6 +31,7 @@ class App extends React.Component {
     console.log('mounted');
     // this.getProjects.call(this);
     this.getFoodFacts({ name: 'cabbage' });
+    console.log(this.state.nutritionData.food_name);
   }
 
   selectFood(food) {
@@ -49,7 +50,7 @@ class App extends React.Component {
       success: (data) => {
         console.log('client got data!')
         this.setState({
-          nutritionData: data
+          nutritionData: JSON.parse(data).foods[0]
         })
       },
       error: (err) => {
@@ -63,6 +64,7 @@ class App extends React.Component {
       <h1>You Are What You Eat</h1>
       <h2>Search</h2>
       <Search />
+      <NutritionInfo facts={this.state.nutritionData}/>
       <h2>Food List</h2>
       <FoodList foods={this.state.foods} selectFood={this.selectFood.bind(this)}/>
     </div>)
