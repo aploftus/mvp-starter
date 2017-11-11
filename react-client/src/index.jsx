@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import List from './components/List.jsx';
+import Search from './components/Search.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,7 +33,10 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <h1>Item List</h1>
+      <h1>Donors Choose Urgent Projects</h1>
+      <h2>Search</h2>
+      <Search />
+      <h2>Item List</h2>
       <List items={this.state.items}/>
     </div>)
   }
