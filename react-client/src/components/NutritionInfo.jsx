@@ -8,7 +8,7 @@ const NutritionInfo = ({nutrients, nutrientCodes, measures, facts}) => (
       <thead>
         <tr>
           <th>Nutrient</th>
-          <th>Amount in {facts.food_name}</th>
+          <th>Amount in serving of {facts.food_name}</th>
         </tr>
       </thead>
       <tbody>

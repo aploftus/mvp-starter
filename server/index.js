@@ -43,6 +43,7 @@ app.post('/food', function (req, res) {
     }
     if (response) {
       console.log('got data from api');
+      console.log(body);
       res.json(body);
     }
   });

@@ -9,6 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      query: 'bacon',
       foods: [
         {
           name: 'broccoli',
@@ -468,40 +469,56 @@ class App extends React.Component {
   componentDidMount() {
     console.log('mounted');
     // this.getProjects.call(this);
-    this.getFoodFacts({ name: 'cabbage' });
+    this.getFoodFacts('bacon');
     console.log(this.state.nutritionData.food_name);
   }
 
-  selectFood(food) {
-    console.log('you selected ', food.name);
-    this.getFoodFacts(food);
+  // selectFood(food) {
+  //   console.log('you selected ', food.name);
+  //   this.getFoodFacts(food);
+  // }
+
+  updateQuery(query) {
+    this.setState({
+      query: query
+    })
+  }
+
+  handleSubmit(event) {
+    console.log('i submitted!');
+    this.getFoodFacts(this.state.query);
+    event.preventDefault();
   }
 
   getFoodFacts(food) {
     console.log('getting food facts');
-
-    $.ajax({
-      url: '/food',
-      method: 'POST',
-      data: JSON.stringify({ query: food.name }),
-      contentType: 'application/json',
-      success: (data) => {
-        console.log('client got data!')
-        this.setState({
-          nutritionData: JSON.parse(data).foods[0]
-        })
-      },
-      error: (err) => {
-        console.log('err ', err);
-      }
-    })
+    if (food) {
+      $.ajax({
+        url: '/food',
+        method: 'POST',
+        data: JSON.stringify({ query: food }),
+        contentType: 'application/json',
+        success: (data) => {
+          console.log('client got data!')
+          this.setState({
+            nutritionData: JSON.parse(data).foods[0]
+          })
+        },
+        error: (err) => {
+          console.log('err ', err);
+        }
+      })
+    }
   } 
 
   render () {
     return (<div>
       <h1>You Are What You Eat</h1>
-      <h2>Search</h2>
-      <Search />
+      <h2>Search query {this.state.query}</h2>
+      <Search
+        updateQuery={this.updateQuery.bind(this)}
+        handleSubmit={this.handleSubmit.bind(this)} 
+      />
       <NutritionInfo
         nutrients={this.state.nutrients}
         nutrientCodes={this.state.nutrientCodes}
@@ -509,7 +526,7 @@ class App extends React.Component {
         facts={this.state.nutritionData}
       />
       <h2>Food List</h2>
-      <FoodList foods={this.state.foods} selectFood={this.selectFood.bind(this)}/>
+      <FoodList foods={this.state.foods}/>
     </div>)
   }
 }
