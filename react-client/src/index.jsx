@@ -30,6 +30,10 @@ class App extends React.Component {
     // this.getProjects.call(this);
   }
 
+  selectFood(food) {
+    console.log('you selected ', food.name);
+  }
+
   // getProjects() {
   //   $.ajax({
   //     url: '/projects', 
@@ -50,7 +54,7 @@ class App extends React.Component {
       <h2>Search</h2>
       <Search />
       <h2>Food List</h2>
-      <FoodList foods={this.state.foods}/>
+      <FoodList foods={this.state.foods} selectFood={this.selectFood.bind(this)}/>
     </div>)
   }
 }

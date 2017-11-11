@@ -1,7 +1,7 @@
 import React from 'react';
 import FoodEntry from './FoodEntry.jsx';
 
-const FoodList = ({foods}) => (
+const FoodList = ({foods, selectFood}) => (
   <div>
     <h4> Project Component </h4>
     There are { foods.length } items.
@@ -9,6 +9,7 @@ const FoodList = ({foods}) => (
       return <FoodEntry 
         food={food}
         key={index} 
+        selectFood={selectFood}
       /> })
     }
   </div>
