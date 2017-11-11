@@ -40,20 +40,11 @@ class App extends React.Component {
   getFoodFacts(food) {
     console.log('getting food facts');
 
-    // A unique identifier to represent the end-user who is accessing the Nutritionix API
-    // If in development mode, set this to 0.
-    // This is used for billing purposes to determine the number of active users your app has.
-    // Please note, when authenticating with the API, you must send the 
-    // x-app-id and x-app-key params as headers, and not as query string parameters.
     $.ajax({
-      url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
+      url: '/food',
       method: 'POST',
-      data: { "query": 'broccoli' },
-      headers: {
-        "x-app-id": config.APP_ID,
-        "x-app-key": config.API_KEY,
-        "x-remote-user-id": 0,
-      },
+      data: JSON.stringify({ query: food.name }),
+      contentType: 'application/json',
       success: (data) => {
         console.log('client got data!')
         console.log(data);
@@ -64,7 +55,7 @@ class App extends React.Component {
       error: (err) => {
         console.log('err ', err);
       }
-    });
+    })
   } 
 
 
