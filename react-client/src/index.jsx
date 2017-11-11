@@ -7,8 +7,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: []
-    }
+      items: [
+        {description: 'one'},
+        {description: 'two'},
+        {description: 'three'}
+      ]
+    };
   }
 
   componentDidMount() {
