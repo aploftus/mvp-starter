@@ -1,13 +1,13 @@
 {
-  "name": "github-fetcher-fullstack-v2",
+  "name": "donors-choose-fetcher",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js"
   },
-  "author": "Beth Johnson",
+  "author": "Amy Loftus",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -17,7 +17,6 @@
     "webpack": "^2.2.1"
   },
   "dependencies": {
-    "angular": "^1.6.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.0",
     "jquery": "^3.1.1",
