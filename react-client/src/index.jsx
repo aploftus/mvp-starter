@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import List from './components/List.jsx';
 import ProjectList from './components/ProjectList.jsx';
 import Search from './components/Search.jsx';
 
@@ -9,12 +8,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: [
-        {description: 'one'},
-        {description: 'two'},
-        {description: 'three'},
-        {description: 'four'}
-      ],
       projects: [
         {
           title: 'title1',
@@ -61,8 +54,6 @@ class App extends React.Component {
       <h1>Donors Choose Urgent Projects</h1>
       <h2>Search</h2>
       <Search />
-      <h2>Item List</h2>
-      <List items={this.state.items}/>
       <h2>Project List</h2>
       <ProjectList projects={this.state.projects}/>
     </div>)
