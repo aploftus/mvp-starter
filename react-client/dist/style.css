@@ -1,13 +1,17 @@
 body {
   font-family: Geneva, Tahoma, Verdana, sans-serif;
-}
-
-.container {
   text-align: center;
 }
 
+footer {
+  padding: 1em;
+}
+
+.container {
+}
+
 th, td {
-  padding: 5px;
+  padding: 0.5em;
   border: 1px black solid;
 }
 
@@ -17,5 +21,10 @@ th {
 
 .food-thumb {
   float: left;
-  padding-left: 10%;
+  padding: 10% 10%;
+}
+
+.food-table {
+  display: inline-block;
+  width: 50%;
 }
