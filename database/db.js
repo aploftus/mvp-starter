@@ -11,16 +11,16 @@ db.once('open', function() {
 
 let foodSchema = mongoose.Schema({
     name: String,
-    calcium: Number,
-    iron: Number,
-    vit_a: Number,
-    vit_b_6: Number,
-    vit_c: Number,
-    vit_d: Number,
-    vit_e: Number,
-    proteins: Number,
-    fats: Number,
-    sugars: Number,
+    Calcium: Number,
+    Iron: Number,
+    "Vitamin A": Number,
+    "Vitamin B-6": Number,
+    "Vitamin C": Number,
+    "Vitamin D": Number,
+    "Vitamin E": Number,
+    Proteins: Number,
+    Fats: Number,
+    Sugars: Number,
     img: String
 });
 
@@ -30,7 +30,7 @@ let retrieve = (foodName, callback) => {
   console.log('trying to retrieve');
   Food.findOne({name: foodName}, (err, foodEntry) => {
     console.log(foodEntry);
-    callback(err, foodEntry);
+    callback(foodEntry);
   });
 }
 
@@ -41,16 +41,16 @@ let save = (foodData, callback) => {
 
   let foodEntry = new Food({ 
     name: foodData.food_name,
-    calcium: nutrients[21].value,
-    iron: nutrients[22].value,
-    vit_a: nutrients[32].value,
-    vit_b_6: nutrients[53].value,
-    vit_c: nutrients[48].value,
-    vit_d: nutrients[38].value,
-    vit_e: nutrients[37].value,
-    proteins: nutrients[1].value,
-    fats: nutrients[2].value,
-    sugars: nutrients[18].value,
+    Calcium: nutrients[21].value,
+    Iron: nutrients[22].value,
+    "Vitamin A": nutrients[32].value,
+    "Vitamin B-6": nutrients[53].value,
+    "Vitamin C": nutrients[48].value,
+    "Vitamin D": nutrients[38].value,
+    "Vitamin E": nutrients[37].value,
+    Proteins: nutrients[1].value,
+    Fats: nutrients[2].value,
+    Sugars: nutrients[18].value,
     img: foodData.photo.thumb
 
   });
@@ -68,13 +68,6 @@ let save = (foodData, callback) => {
 
 exports.save = save;
 exports.retrieve = retrieve;
-
-// Kitten.find(function (err, kittens) {
-//   if (err) return console.error(err);
-//   console.log(kittens);
-// })
-
-// Kitten.find({ name: /^fluff/ }, callback);
 
 
 

@@ -1,3 +1,6 @@
+let config = require('../config.js');
+let request = require('request');
+
 let getNutritionInfo = (food, callback) => {
   let options = {
     // x-remote-user-id: A unique identifier to represent the end-user who 
