@@ -1,6 +1,6 @@
 import React from 'react';
 
-let NutritionEntry = ({nutrient, nutrientCode, measure, facts}) => (
+let NutritionEntry = ({nutrient, measure, facts}) => (
   <tr>
     <td>{nutrient}</td>
     <td>{facts[nutrient]} {measure}</td>

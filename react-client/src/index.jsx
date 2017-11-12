@@ -112,7 +112,6 @@ class App extends React.Component {
       <h4>Results for: {this.state.query}</h4>
       <NutritionInfo
         nutrients={this.state.nutrients}
-        nutrientCodes={this.state.nutrientCodes}
         measures={this.state.measures}
         facts={this.state.nutritionData}
       />

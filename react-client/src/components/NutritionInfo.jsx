@@ -1,7 +1,7 @@
 import React from 'react';
 import NutritionEntry from './NutritionEntry.jsx';
 
-const NutritionInfo = ({nutrients, nutrientCodes, measures, facts}) => (
+const NutritionInfo = ({nutrients, measures, facts}) => (
   <div className="nutrition-info">
     <img className="food-thumb" src={facts.img} />
     <div className="food-table">
@@ -17,7 +17,6 @@ const NutritionInfo = ({nutrients, nutrientCodes, measures, facts}) => (
             return <NutritionEntry 
               nutrient={nutrient}
               key={index} 
-              nutrientCode={nutrientCodes[index]}
               measure={measures[index]}
               facts={facts}
             /> })
