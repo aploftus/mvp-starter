@@ -2,7 +2,8 @@ import React from 'react';
 import NutritionEntry from './NutritionEntry.jsx';
 
 const NutritionInfo = ({nutrients, nutrientCodes, measures, facts}) => (
-  <div className="nutrition-table">
+  <div className="nutrition-info">
+  <img className="food-thumb" src={facts.photo.thumb} />
     <table>
       <thead>
         <tr>
@@ -26,3 +27,6 @@ const NutritionInfo = ({nutrients, nutrientCodes, measures, facts}) => (
 )
 
 export default NutritionInfo;
+
+
+// <img className="food-thumb" src={facts.photo.highres} />

@@ -14,3 +14,8 @@ th, td {
 th {
   background-color: lightgreen;
 }
+
+.food-thumb {
+  float: left;
+  padding-left: 10%;
+}
