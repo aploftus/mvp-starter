@@ -53,7 +53,6 @@ class App extends React.Component {
         'Fats',
         'Sugars'
       ],
-      nutrientCodes: [ 21, 22, 32, 53, 48, 38, 37, 1, 2, 18 ],
       measures: [ 'mg', 'mg', 'IU', 'mg', 'mg', 'IU', 'mg', 'g', 'g', 'g' ]
     };
   }
