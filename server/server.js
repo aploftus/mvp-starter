@@ -1,4 +1,5 @@
 let config = require('../config.js');
+let db = require('../database/db.js');
 let express = require('express');
 let bodyParser = require('body-parser');
 let request = require('request');
@@ -43,8 +44,12 @@ app.post('/food', function (req, res) {
     }
     if (response) {
       console.log('got data from api');
-      console.log(body);
-      res.json(body);
+      let foodData = JSON.parse(body).foods[0];
+
+      db.save(foodData, () => {
+        console.log('successful save from server');
+        res.json(body);
+      })
     }
   });
 });

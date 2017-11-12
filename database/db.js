@@ -1,7 +1,7 @@
 let mongoose = require('mongoose');
-
-let mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/foods');
+mongoose.connect('mongodb://localhost/foods', {
+  useMongoClient: true
+});
 
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -26,11 +26,13 @@ let foodSchema = mongoose.Schema({
 
 let Food = mongoose.model('Food', foodSchema);
 
-let save = (foodData) => {
+let save = (foodData, callback) => {
+  console.log('successfully get to db save function');
+
   let nutrients = foodData.full_nutrients;
 
   let foodEntry = new Food({ 
-    name: 'foodData.food_name',
+    name: foodData.food_name,
     calcium: nutrients[21].value,
     iron: nutrients[22].value,
     vit_a: nutrients[32].value,
@@ -45,14 +47,14 @@ let save = (foodData) => {
 
   });
 
-  foodEntry.save(function (err, foodEntry) {
+  foodEntry.save((err, foodEntry) => {
     if (err) { 
       return console.error(err)
     } else {
       console.log(foodEntry.name, ' was saved');
+      callback();
     }
   });
-
 
 };
 

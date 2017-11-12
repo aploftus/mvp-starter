@@ -2,10 +2,10 @@
   "name": "nutrition-fetcher",
   "version": "1.0.0",
   "description": "",
-  "main": "server/index.js",
+  "main": "server/server.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js"
+    "server-dev": "nodemon server/server.js"
   },
   "author": "Amy Loftus",
   "license": "ISC",
