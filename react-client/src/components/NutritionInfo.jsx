@@ -2,8 +2,7 @@ import React from 'react';
 import NutritionEntry from './NutritionEntry.jsx';
 
 const NutritionInfo = ({nutrients, nutrientCodes, measures, facts}) => (
-  <div>
-    <h4> NutritionInfo Component </h4>
+  <div className="nutrition-table">
     <table>
       <thead>
         <tr>

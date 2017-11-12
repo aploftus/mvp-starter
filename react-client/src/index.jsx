@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import FoodList from './components/FoodList.jsx';
 import Search from './components/Search.jsx';
+import Intro from './components/Intro.jsx';
 import NutritionInfo from './components/NutritionInfo.jsx';
 
 class App extends React.Component {
@@ -512,13 +513,14 @@ class App extends React.Component {
   } 
 
   render () {
-    return (<div>
-      <h1>You Are What You Eat</h1>
-      <h2>Search query {this.state.query}</h2>
+    return (<div className="container">
+      <h1 className="heading">You Are What You Eat</h1>
+      <Intro />
       <Search
         updateQuery={this.updateQuery.bind(this)}
         handleSubmit={this.handleSubmit.bind(this)} 
       />
+      <h4>Results for: {this.state.query}</h4>
       <NutritionInfo
         nutrients={this.state.nutrients}
         nutrientCodes={this.state.nutrientCodes}
