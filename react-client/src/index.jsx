@@ -580,9 +580,10 @@ class App extends React.Component {
         contentType: 'application/json',
         success: (data) => {
           console.log('client got data!')
-          this.setState({
-            nutritionData: JSON.parse(data).foods[0]
-          })
+          // this.setState({
+          //   nutritionData: JSON.parse(data).foods[0]
+          // })
+          console.log(data);
         },
         error: (err) => {
           console.log('err ', err);

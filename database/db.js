@@ -26,6 +26,14 @@ let foodSchema = mongoose.Schema({
 
 let Food = mongoose.model('Food', foodSchema);
 
+let retrieve = (foodName, callback) => {
+  console.log('trying to retrieve');
+  Food.findOne({name: foodName}, (err, foodEntry) => {
+    console.log(foodEntry);
+    callback(err, foodEntry);
+  });
+}
+
 let save = (foodData, callback) => {
   console.log('successfully get to db save function');
 
@@ -52,13 +60,14 @@ let save = (foodData, callback) => {
       return console.error(err)
     } else {
       console.log(foodEntry.name, ' was saved');
-      callback();
+      callback(foodEntry);
     }
   });
 
 };
 
 exports.save = save;
+exports.retrieve = retrieve;
 
 // Kitten.find(function (err, kittens) {
 //   if (err) return console.error(err);
