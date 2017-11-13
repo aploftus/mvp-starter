@@ -11,7 +11,7 @@ footer {
 }
 
 th, td {
-  padding: 0.5em;
+  padding: 0.25em;
   border: 1px black solid;
 }
 
@@ -21,10 +21,10 @@ th {
 
 .food-thumb {
   float: left;
-  padding: 10% 10%;
+  padding: 5% 5%;
 }
 
 .food-table {
   display: inline-block;
-  width: 50%;
+  width: 75%;
 }

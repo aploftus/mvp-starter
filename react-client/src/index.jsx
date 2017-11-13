@@ -40,7 +40,10 @@ class App extends React.Component {
         'Fats',
         'Sugars'
       ],
-      measures: [ 'mg', 'mg', 'IU', 'mg', 'mg', 'IU', 'mg', 'g', 'g', 'g' ]
+      measures: [ 'mg', 'mg', 'IU', 'mg', 'mg', 'IU', 'mg', 'g', 'g', 'g' ],
+      driChild: [1000, 10, 500, 0.8, 35, 600, 7, 19, 25, 45],
+      driTeen: [1300, 13, 900, 1.2, 75, 600, 11, 40, 20, 45],
+      driAdult: [1000, 13, 800, 1.3, 85, 600, 15, 50, 20, 45]
     };
   }
 
@@ -116,11 +119,13 @@ class App extends React.Component {
         updateQuery={this.updateQuery.bind(this)}
         handleSubmit={this.handleSubmit.bind(this)} 
       />
-      <h4>Results for: {this.state.query}</h4>
       <NutritionInfo
         nutrients={this.state.nutrients}
         measures={this.state.measures}
         facts={this.state.nutritionData}
+        driAdult={this.state.driAdult}
+        driTeen={this.state.driTeen}
+        driChild={this.state.driChild}
       />
       <h2>Food List</h2>
       <FoodList 
