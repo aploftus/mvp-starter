@@ -10,7 +10,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: 'cabbage',
+      query: 'broccoli',
       foods: [
         {
           name: 'broccoli',
@@ -88,11 +88,11 @@ class App extends React.Component {
         method: 'POST',
         data: JSON.stringify({ query: food }),
         contentType: 'application/json',
-        success: (data) => {
-          console.log('client posted data!')
-          console.log(data);
+        success: (foodData) => {
+          console.log('client posted foodData!')
+          console.log(foodData);
           this.setState({
-            nutritionData: data
+            nutritionData: foodData
           })
         },
         error: (err) => {
@@ -108,9 +108,12 @@ class App extends React.Component {
       url: '/food',
       method: 'GET',
       contentType: 'application/json',
-      success: (data) => {
+      success: (menu) => {
         console.log('client got data!')
-        console.log(data);
+        console.log(menu);
+        this.setState({
+          foods: menu
+        })
       },
       error: (err) => {
         console.log('err ', err);

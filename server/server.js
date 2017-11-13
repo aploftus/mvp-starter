@@ -17,7 +17,6 @@ app.get('/food', (req, res) => {
   console.log('got to server to get menu');
   db.retrieveAll((menu) => {
     console.log(menu);
-    // res.json('yippee');
     res.json(menu);
   })
 
