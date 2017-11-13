@@ -26,11 +26,28 @@ let foodSchema = mongoose.Schema({
 
 let Food = mongoose.model('Food', foodSchema);
 
-let retrieve = (foodName, callback) => {
+let retrieveAll = (callback) => {
+  Food
+    .find()
+    .select({name: 1, img: 1})
+    .exec((err, menu) => {
+      if (err) {
+        console.log('err ', err)
+      } else {
+        callback(menu)
+      }
+    });
+}
+
+let retrieveOne = (foodName, callback) => {
   console.log('trying to retrieve');
   Food.findOne({name: foodName}, (err, foodEntry) => {
-    console.log(foodEntry);
-    callback(foodEntry);
+    if (err) {
+        console.log('err ', err)
+    } else {
+      console.log(foodEntry);
+      callback(foodEntry);
+    }
   });
 }
 
@@ -67,7 +84,8 @@ let save = (foodData, callback) => {
 };
 
 exports.save = save;
-exports.retrieve = retrieve;
+exports.retrieveOne = retrieveOne;
+exports.retrieveAll = retrieveAll;
 
 
 

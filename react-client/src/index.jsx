@@ -59,6 +59,7 @@ class App extends React.Component {
 
   componentDidMount() {
     console.log('mounted');
+    this.getMenu();
     this.getFoodFacts(this.state.query);
   }
 
@@ -88,7 +89,7 @@ class App extends React.Component {
         data: JSON.stringify({ query: food }),
         contentType: 'application/json',
         success: (data) => {
-          console.log('client got data!')
+          console.log('client posted data!')
           console.log(data);
           this.setState({
             nutritionData: data
@@ -99,7 +100,23 @@ class App extends React.Component {
         }
       })
     }
-  } 
+  }
+
+  getMenu() {
+    console.log('getting menu');
+    $.ajax({
+      url: '/food',
+      method: 'GET',
+      contentType: 'application/json',
+      success: (data) => {
+        console.log('client got data!')
+        console.log(data);
+      },
+      error: (err) => {
+        console.log('err ', err);
+      }
+    })
+  }
 
   render () {
     return (<div className="container">
