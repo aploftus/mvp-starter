@@ -16,7 +16,7 @@ th, td {
 }
 
 th {
-  background-color: lightgreen;
+  background-color: lightblue;
 }
 
 .food-thumb {
@@ -27,4 +27,12 @@ th {
 .food-table {
   display: inline-block;
   width: 75%;
+}
+
+.good-source {
+  background-color: lightgreen;
+}
+
+.bad-source {
+  background-color: lightpink;
 }
