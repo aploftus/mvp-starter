@@ -93,6 +93,7 @@ class App extends React.Component {
           this.setState({
             nutritionData: foodData
           })
+          this.getMenu();
         },
         error: (err) => {
           console.log('err ', err);
