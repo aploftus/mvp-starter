@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: 'broccoli',
+      query: 'bacon',
       age: 'Child',
       foods: [],
       nutritionData: { 
@@ -139,7 +139,7 @@ class App extends React.Component {
         driChild={this.state.driChild}
         age={this.state.age}
       />
-      <h2>Food List</h2>
+      <h2>Click an option below</h2>
       <FoodList 
         foods={this.state.foods}
         selectFood={this.selectFood.bind(this)} />

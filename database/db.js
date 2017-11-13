@@ -55,19 +55,39 @@ let save = (foodData, callback) => {
   console.log('successfully get to db save function');
 
   let nutrients = foodData.full_nutrients;
+  let nutrientCodes = {
+    301: 'Calcium',
+    303: 'Iron',
+    318: 'Vitamin A',
+    323: 'Vitamin E',
+    324: 'Vitamin D',
+    401: 'Vitamin C',
+    415: 'Vitamin B-6'
+  }
+
+  let filterdNutrients = [];
+
+  nutrients.forEach((nutrient) => {
+    if (nutrientCodes[nutrient.attr_id]) {
+      console.log(nutrient.attr_id);
+      filterdNutrients.push(nutrient.value);
+    }
+  });
+
+  console.log(filterdNutrients);
 
   let foodEntry = new Food({ 
     name: foodData.food_name,
-    Calcium: nutrients[21].value,
-    Iron: nutrients[22].value,
-    "Vitamin A": nutrients[32].value,
-    "Vitamin B-6": nutrients[53].value,
-    "Vitamin C": nutrients[48].value,
-    "Vitamin D": nutrients[38].value,
-    "Vitamin E": nutrients[37].value,
-    Proteins: nutrients[1].value,
-    Fats: nutrients[2].value,
-    Sugars: nutrients[18].value,
+    Calcium: filterdNutrients[1] || 0,
+    Iron: filterdNutrients[2] || 0,
+    "Vitamin A": filterdNutrients[3] || 0,
+    "Vitamin B-6": filterdNutrients[7] || 0,
+    "Vitamin C": filterdNutrients[6] || 0,
+    "Vitamin D": filterdNutrients[5] || 0,
+    "Vitamin E": filterdNutrients[4] || 0,
+    Proteins: foodData.nf_protein || 0,
+    Fats: foodData.nf_total_fat || 0,
+    Sugars: foodData.nf_sugars || 0,
     img: foodData.photo.thumb
 
   });
