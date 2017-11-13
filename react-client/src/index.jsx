@@ -56,7 +56,6 @@ class App extends React.Component {
   }
 
   selectFood(food) {
-    console.log('you selected ', food.name);
     this.getFoodFacts(food.name);
   }
 
@@ -64,7 +63,6 @@ class App extends React.Component {
     this.setState({
       age: age
     })
-    console.log('the new age is ', this.state.age);
   }
 
   updateQuery(query) {
@@ -74,13 +72,11 @@ class App extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log('i submitted!');
     this.getFoodFacts(this.state.query);
     event.preventDefault();
   }
 
   getFoodFacts(food) {
-    console.log('getting food facts');
     if (food) {
       $.ajax({
         url: '/food',
@@ -88,8 +84,6 @@ class App extends React.Component {
         data: JSON.stringify({ query: food }),
         contentType: 'application/json',
         success: (foodData) => {
-          console.log('client posted foodData!')
-          console.log(foodData);
           this.setState({
             nutritionData: foodData
           })
@@ -103,14 +97,11 @@ class App extends React.Component {
   }
 
   getMenu() {
-    console.log('getting menu');
     $.ajax({
       url: '/food',
       method: 'GET',
       contentType: 'application/json',
       success: (menu) => {
-        console.log('client got data!')
-        console.log(menu);
         this.setState({
           foods: menu
         })

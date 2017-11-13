@@ -2,6 +2,7 @@ let mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/foods', {
   useMongoClient: true
 });
+mongoose.Promise = require('bluebird');
 
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -40,20 +41,16 @@ let retrieveAll = (callback) => {
 }
 
 let retrieveOne = (foodName, callback) => {
-  console.log('trying to retrieve');
   Food.findOne({name: foodName}, (err, foodEntry) => {
     if (err) {
         console.log('err ', err)
     } else {
-      console.log(foodEntry);
       callback(foodEntry);
     }
   });
 }
 
 let save = (foodData, callback) => {
-  console.log('successfully get to db save function');
-
   let nutrients = foodData.full_nutrients;
   let nutrientCodes = {
     301: 'Calcium',
@@ -63,18 +60,14 @@ let save = (foodData, callback) => {
     324: 'Vitamin D',
     401: 'Vitamin C',
     415: 'Vitamin B-6'
-  }
-
+  };
   let filterdNutrients = [];
 
   nutrients.forEach((nutrient) => {
     if (nutrientCodes[nutrient.attr_id]) {
-      console.log(nutrient.attr_id);
       filterdNutrients.push(nutrient.value);
     }
   });
-
-  console.log(filterdNutrients);
 
   let foodEntry = new Food({ 
     name: foodData.food_name,

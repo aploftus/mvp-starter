@@ -24,7 +24,6 @@ let getNutritionInfo = (food, callback) => {
       console.log(err);
     }
     if (response) {
-      console.log('got data from api');
       let foodData = JSON.parse(body).foods[0];
       callback(foodData);
     }
