@@ -12,7 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       query: 'broccoli',
-      age: 'child',
+      age: 'Child',
       foods: [],
       nutritionData: { 
         _id: '5a08ad324ef8a69e9c47b100',
