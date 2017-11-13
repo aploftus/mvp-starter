@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import FoodList from './components/FoodList.jsx';
 import Search from './components/Search.jsx';
+import AgeSelector from './components/AgeSelector.jsx';
 import Intro from './components/Intro.jsx';
 import NutritionInfo from './components/NutritionInfo.jsx';
 
@@ -11,6 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       query: 'broccoli',
+      age: 'child',
       foods: [],
       nutritionData: { 
         _id: '5a08ad324ef8a69e9c47b100',
@@ -56,6 +58,13 @@ class App extends React.Component {
   selectFood(food) {
     console.log('you selected ', food.name);
     this.getFoodFacts(food.name);
+  }
+
+  selectAge(age) {
+    this.setState({
+      age: age
+    })
+    console.log('the new age is ', this.state.age);
   }
 
   updateQuery(query) {
@@ -119,6 +128,7 @@ class App extends React.Component {
         updateQuery={this.updateQuery.bind(this)}
         handleSubmit={this.handleSubmit.bind(this)} 
       />
+      <AgeSelector age={this.state.age} selectAge={this.selectAge.bind(this)}/>
       <NutritionInfo
         nutrients={this.state.nutrients}
         measures={this.state.measures}
