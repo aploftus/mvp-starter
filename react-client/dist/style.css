@@ -8,13 +8,26 @@ footer {
 }
 
 .container {
+  display: inline-block;
   width: 90%;
   margin: 0 auto;
 }
 
+/* ========= MENU ========== */
+
+.food-entry {
+  display: inline-block;
+  width: 150px;
+  padding: 10px;
+}
+
+
+/* ========= NUTRITION INFO ========== */
+
 th, td {
   padding: 0.25em;
   border: 1px black solid;
+  font-size: 14px;
 }
 
 th {
@@ -23,7 +36,7 @@ th {
 
 .food-thumb {
   float: left;
-  padding: 5% 5%;
+  padding: 10px;
 }
 
 .food-table {
