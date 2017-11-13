@@ -11,10 +11,10 @@ class NutritionEntry extends React.Component {
     let dri = this.props['dri' + age];
     let category;
 
-    if (nutrientAmount / dri < 0.25) {
+    if (nutrientAmount / dri < 0.1) {
       category = "low-source";
     }
-    if (nutrientAmount / dri >= 0.25) {
+    if (nutrientAmount / dri >= 0.4) {
       category = "high-source";
     }
 
