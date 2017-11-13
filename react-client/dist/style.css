@@ -29,10 +29,10 @@ th {
   width: 75%;
 }
 
-.good-source {
+.high-source {
   background-color: lightgreen;
 }
 
-.bad-source {
+.low-source {
   background-color: lightpink;
 }

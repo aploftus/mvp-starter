@@ -9,11 +9,19 @@ class NutritionEntry extends React.Component {
     let nutrientAmount = this.props.facts[this.props.nutrient];
     let age = this.props.age;
     let dri = this.props['dri' + age];
+    let category;
+
+    if (nutrientAmount / dri < 0.25) {
+      category = "low-source";
+    }
+    if (nutrientAmount / dri >= 0.25) {
+      category = "high-source";
+    }
 
     return (
       <tr>
         <td>{this.props.nutrient}</td>
-        <td>{nutrientAmount} {this.props.measure}</td>
+        <td className={category}>{nutrientAmount} {this.props.measure}</td>
         <td>{dri} {this.props.measure}</td>
       </tr>
     )
