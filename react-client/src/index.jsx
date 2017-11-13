@@ -11,20 +11,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       query: 'broccoli',
-      foods: [
-        {
-          name: 'broccoli',
-          thumbnail: 'https://i5.walmartimages.ca/images/Large/950/304/6000016950304.jpg?odnBound=460'
-        },
-        {
-          name: 'apple',
-          thumbnail: 'http://juliandance.org/wp-content/uploads/2016/01/RedApple.jpg'
-        },
-        {
-          name: 'pasta',
-          thumbnail: 'https://www.budgetbytes.com/wp-content/uploads/2017/06/Grilled-Vegetable-Pasta-Salad-H-380x380.jpg'
-        }
-      ],
+      foods: [],
       nutritionData: { 
         _id: '5a08ad324ef8a69e9c47b100',
         name: 'bacon',
@@ -63,10 +50,10 @@ class App extends React.Component {
     this.getFoodFacts(this.state.query);
   }
 
-  // selectFood(food) {
-  //   console.log('you selected ', food);
-  //   this.getFoodFacts(food);
-  // }
+  selectFood(food) {
+    console.log('you selected ', food.name);
+    this.getFoodFacts(food.name);
+  }
 
   updateQuery(query) {
     this.setState({
@@ -136,7 +123,9 @@ class App extends React.Component {
         facts={this.state.nutritionData}
       />
       <h2>Food List</h2>
-      <FoodList foods={this.state.foods}/>
+      <FoodList 
+        foods={this.state.foods}
+        selectFood={this.selectFood.bind(this)} />
     </div>)
   }
 }
