@@ -136,6 +136,7 @@ class App extends React.Component {
         driAdult={this.state.driAdult}
         driTeen={this.state.driTeen}
         driChild={this.state.driChild}
+        age={this.state.age}
       />
       <h2>Food List</h2>
       <FoodList 
